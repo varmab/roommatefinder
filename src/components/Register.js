@@ -7,14 +7,14 @@ class Register extends Component{
 
         this.state={
             user:{
-                fullName:'',
+                name:'',
                 phone:'',
                 email:'',
                 password:'',
                 agreeToTerms:false
             },
             touched:{
-                fullName:false,
+                name:false,
                 phone:false,
                 email:false,
                 password:false
@@ -61,8 +61,8 @@ class Register extends Component{
             errors.email = 'Email is required';
         }
 
-        if (!user.fullName) {
-            errors.fullName = 'Name is required';
+        if (!user.name) {
+            errors.name = 'Name is required';
         }
 
         if (!user.phone) {
@@ -96,6 +96,8 @@ class Register extends Component{
 
         formBody = formBody.join("&");
 
+        //fullName=Ravi&email=asdasdas@aefda.com&
+
         //API Call
 
         fetch('/api/users/register', {
@@ -117,14 +119,14 @@ class Register extends Component{
             
             this.setState({
                 user:{
-                        fullName:'',
+                        name:'',
                         phone:'',
                         email:'',
                         password:'',
                         agreeToTerms:false
                 },
                 touched:{
-                    fullName:false,
+                    name:false,
                     phone:false,
                     email:false,
                     password:false
@@ -162,7 +164,7 @@ class Register extends Component{
                     <h1 className="h3 mb-3 font-weight-normal">Register</h1>
                     <label htmlFor="inputName" className="sr-only">Full Name</label>
                     <div>
-                        <input name="fullName" type="text" value={this.state.user.name} onChange={this.onChange} onBlur={this.onBlur} className="form-control" placeholder="Full Name"/>
+                        <input name="name" type="text" value={this.state.user.name} onChange={this.onChange} onBlur={this.onBlur} className="form-control" placeholder="Full Name"/>
                         {touched.fullName && !!errors.fullName && <span>{errors.fullName}</span>}
                     </div>
                     <label htmlFor="inputPhone" className="sr-only">Full Name</label>

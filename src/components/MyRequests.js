@@ -13,7 +13,7 @@ class MyRequests extends Component {
         fetch('/api/roommaterequests/myrequests',{
             headers: {
                 'Accept': 'application/json',
-                'x-access-token': localStorage.getItem("token")
+                //'x-access-token': localStorage.getItem("token")
               },
         })
             .then((response) => response.json())
